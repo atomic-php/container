@@ -156,6 +156,8 @@ composer psalm
 composer cs-check
 ```
 
+`composer test-coverage` generates `coverage.xml` (Clover) used by CI; the workflow uploads it to Codecov for the badge/report.
+
 ## Benchmarks
 
 ```bash
