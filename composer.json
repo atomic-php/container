@@ -1,0 +1,72 @@
+{
+  "name": "atomic/container",
+  "description": "Lightweight PSR-11 dependency injection container with compile-time compilation",
+  "type": "library",
+  "homepage": "https://github.com/atomic-php/container",
+  "readme": "README.md",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thavarshan",
+      "email": "tjthavarshan@gmail.com",
+      "role": "Author"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/atomic-php/container/issues",
+    "source": "https://github.com/atomic-php/container"
+  },
+  "keywords": [
+    "container",
+    "dependency-injection",
+    "psr-11",
+    "psr",
+    "php",
+    "performance",
+    "compile-time"
+  ],
+  "autoload": {
+    "psr-4": {
+      "Atomic\\Container\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/",
+      "Benchmarks\\": "benchmarks/"
+    }
+  },
+  "require": {
+    "php": "^8.4",
+    "psr/container": "^1.0|^2.0"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.0",
+    "phpunit/phpunit": "^10.0",
+    "vimeo/psalm": "^6.11"
+  },
+  "scripts": {
+    "test": "phpunit",
+    "test-coverage": "php -d xdebug.mode=coverage vendor/bin/phpunit --coverage-clover=coverage.xml",
+    "psalm": "psalm",
+    "cs-check": "php-cs-fixer fix --dry-run --diff",
+    "cs-fix": "php-cs-fixer fix",
+    "benchmark": "php benchmarks/run-benchmarks.php",
+    "qa": [
+      "@psalm",
+      "@cs-check",
+      "@test"
+    ],
+    "analyze": [
+      "@psalm",
+      "@cs-check"
+    ]
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "classmap-authoritative": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
