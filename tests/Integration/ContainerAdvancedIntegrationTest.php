@@ -7,7 +7,6 @@ namespace Tests\Integration;
 use Atomic\Container\ContainerBuilder;
 use Atomic\Container\Exceptions\ContainerException;
 use PHPUnit\Framework\TestCase;
-use Psr\Container\ContainerInterface;
 
 final class ContainerAdvancedIntegrationTest extends TestCase
 {
@@ -79,4 +78,3 @@ final class ContainerAdvancedIntegrationTest extends TestCase
         $this->assertTrue($c->has('c'));
     }
 }
-
