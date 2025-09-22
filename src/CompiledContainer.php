@@ -29,7 +29,8 @@ final class CompiledContainer implements ContainerInterface
         protected array $sharedFactories,
         protected array $factories,
         protected array $aliases,
-    ) {}
+    ) {
+    }
 
     #[\Override]
     public function get(string $id): mixed
