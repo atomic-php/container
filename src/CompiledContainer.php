@@ -19,18 +19,17 @@ use Psr\Container\ContainerInterface;
 final class CompiledContainer implements ContainerInterface
 {
     /**
-     * @param array<string,mixed> $instances
-     * @param array<string,callable(ContainerInterface):mixed> $sharedFactories
-     * @param array<string,callable(ContainerInterface):mixed> $factories
-     * @param array<string,string> $aliases
+     * @param  array<string,mixed>  $instances
+     * @param  array<string,callable(ContainerInterface):mixed>  $sharedFactories
+     * @param  array<string,callable(ContainerInterface):mixed>  $factories
+     * @param  array<string,string>  $aliases
      */
     public function __construct(
-        private array $instances,
-        private array $sharedFactories,
-        private array $factories,
-        private array $aliases,
-    ) {
-    }
+        protected array $instances,
+        protected array $sharedFactories,
+        protected array $factories,
+        protected array $aliases,
+    ) {}
 
     #[\Override]
     public function get(string $id): mixed
@@ -78,6 +77,7 @@ final class CompiledContainer implements ContainerInterface
     public function has(string $id): bool
     {
         $id = $this->aliases[$id] ?? $id;
+
         return \array_key_exists($id, $this->instances)
             || isset($this->sharedFactories[$id])
             || isset($this->factories[$id]);

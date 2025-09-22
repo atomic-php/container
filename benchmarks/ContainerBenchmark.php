@@ -9,15 +9,15 @@ use Psr\Container\ContainerInterface;
 
 final class ContainerBenchmark implements BenchmarkInterface
 {
-    private ContainerInterface $container;
+    protected ContainerInterface $container;
 
     public function setUp(): void
     {
-        $b = new ContainerBuilder();
+        $b = new ContainerBuilder;
         $b->set('config', ['env' => 'prod']);
-        $b->set('instance', new \stdClass());
-        $b->set('shared', fn () => new \stdClass(), shared: true);
-        $b->factory('factory', fn () => new \stdClass());
+        $b->set('instance', new \stdClass);
+        $b->set('shared', fn () => new \stdClass, shared: true);
+        $b->factory('factory', fn () => new \stdClass);
         $b->alias('svc', 'shared');
         $this->container = $b->compile();
     }
