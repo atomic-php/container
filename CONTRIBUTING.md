@@ -6,4 +6,3 @@ Thanks for your interest in contributing! Please open an issue for significant p
 - Add tests for new features and fixes
 - Keep CI green: `composer qa`
 - For perf-sensitive changes, add/update benchmarks and include results
-
